@@ -1,15 +1,15 @@
 {{> layout/header}}
 
 <section>
-    <a href="/store/1/update-form">수정화면가기</a>
-    <form action="/store/1/delete" method="POST">
+    <a href="/store/{{model.id}}/update-form">수정화면가기</a>
+    <form action="/store/{{model.id}}/delete" method="POST">
         <button type="submit">삭제</button>
     </form>
     <div>
-        번호 : 1 <br>
-        상품명 : 바나나 <br>
-        상품가격 : 3000원 <br>
-        상품재고 : 100개 <br>
+        번호 : {{model.id}} <br>
+        상품명 : {{model.name}} <br>
+        상품가격 : {{model.price}} 원 <br>
+        상품재고 : {{model.stock}} 개 <br>
     </div>
     <form action="/store/buy" method="POST">
         <input type="hidden" value="1">

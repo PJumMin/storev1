@@ -31,8 +31,11 @@ public class StoreController {
         return "store/save-form";
     }
 
+    // TODO : 상세보기
     @GetMapping("/store/{id}")
-    public String detail(@PathVariable("id") int id) {
+    public String detail(@PathVariable("id") int id, HttpServletRequest request) {
+        Store store = storeService.상세보기(id);
+        request.setAttribute("model", store);
         return "store/detail";
     }
 
