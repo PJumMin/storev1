@@ -27,6 +27,14 @@ public class StoreController {
         return "store/list";
     }
 
+    // Detail Page
+    @GetMapping("/store/{id}")
+    public String detail(@PathVariable("id") int id, HttpServletRequest request) {
+        Store store = storeService.상세보기(id);
+        request.setAttribute("model", store);
+        return "store/detail";
+    }
+
     // Save Page
     @GetMapping("/store/save-form")
     public String saveForm() {
