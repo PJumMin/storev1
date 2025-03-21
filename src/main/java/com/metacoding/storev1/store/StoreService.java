@@ -48,4 +48,16 @@ public class StoreService {
 
     }
 
+    // Update
+    @Transactional
+    public void 상품수정(int id, String name, int stock, int price) {
+        // 1. 상품 조회
+        Store store = storeRepository.findById(id);
+
+        // 2. 상품 수정
+        if (store == null) {
+            throw new RuntimeException("수정할 상품이 없어요");
+        }
+        storeRepository.updateById(id, name, stock, price);
+    }
 }
